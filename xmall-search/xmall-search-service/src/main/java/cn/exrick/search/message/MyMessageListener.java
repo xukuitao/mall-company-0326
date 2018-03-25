@@ -1,6 +1,6 @@
 package cn.exrick.search.message;
 
-import cn.exrick.manager.exception.XmallException;
+import cn.exrick.common.exception.XmallException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

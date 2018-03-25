@@ -1,14 +1,14 @@
 package cn.exrick.manager.service.impl;
 
-import common.exception.XmallException;
-import common.jedis.JedisClient;
-import common.pojo.ZTreeNode;
-import service.ContentCatService;
-import cn.exrick.manager.dto.ContentCatDto;
-import cn.exrick.manager.dto.DtoUtil;
+import cn.exrick.common.dto.ContentCatDto;
+import cn.exrick.common.dto.DtoUtil;
+import cn.exrick.common.exception.XmallException;
+import cn.exrick.common.jedis.JedisClient;
+import cn.exrick.common.pojo.TbContentCategoryExample;
+import cn.exrick.common.pojo.ZTreeNode;
+import cn.exrick.common.service.ContentCatService;
 import cn.exrick.manager.mapper.TbContentCategoryMapper;
-import cn.exrick.manager.pojo.TbContentCategory;
-import cn.exrick.manager.pojo.TbContentCategoryExample;
+import cn.exrick.common.pojo.TbContentCategory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

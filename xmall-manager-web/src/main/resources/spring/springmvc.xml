@@ -20,17 +20,17 @@
     <context:component-scan base-package="cn.exrick.manager" />
 
     <!-- 配置自定义Realm -->
-    <bean id="myRealm" class="cn.exrick.manager.utils.MyRealm"/>
+    <bean id="myRealm" class="cn.exrick.common.utils.MyRealm"/>
 
     <!-- 安全管理器 -->
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
         <property name="realm" ref="myRealm"/>
     </bean>
 
-    <bean id="perms" class="cn.exrick.manager.utils.MyPermissionFilter"/>
+    <bean id="perms" class="cn.exrick.common.utils.MyPermissionFilter"/>
 
     <!-- Shiro过滤器 核心-->
-    <bean id="shiroFilter" class="cn.exrick.manager.utils.MyShiroFilterFactoryBean">
+    <bean id="shiroFilter" class="cn.exrick.common.utils.MyShiroFilterFactoryBean">
         <!-- Shiro的核心安全接口,这个属性是必须的 -->
         <property name="securityManager" ref="securityManager"/>
         <!-- 身份认证失败，则跳转到登录页面的配置 -->
@@ -42,8 +42,8 @@
         <!--自定义过滤器-->
         <property name="filters">
             <util:map>
-                <entry key="perms" value-ref="perms"></entry>
-                <entry key="roles" value-ref="perms"></entry>
+                <entry key="perms" value-ref="perms"/>
+                <entry key="roles" value-ref="perms"/>
             </util:map>
         </property>
         <!-- Shiro连接约束配置,即过滤链的定义 -->
@@ -94,9 +94,9 @@
     <bean id="multipartResolver"
           class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <!-- 设定默认编码 -->
-        <property name="defaultEncoding" value="UTF-8"></property>
+        <property name="defaultEncoding" value="UTF-8"/>
         <!-- 设定文件上传的最大值5MB，5*1024*1024 -->
-        <property name="maxUploadSize" value="5242880"></property>
+        <property name="maxUploadSize" value="5242880"/>
     </bean>
 
     <!--配置资源映射-->
@@ -137,11 +137,13 @@
     <dubbo:application name="xmall-front-web"/>
     <dubbo:registry protocol="zookeeper" address="127.0.0.1:2181"/>
 
-    <dubbo:reference interface="cn.exrick.search.service.SearchService" id="searchService" />
-    <dubbo:reference interface="cn.exrick.search.service.SearchItemService" id="searchItemService" />
-    <dubbo:reference interface="cn.exrick.sso.service.RegisterService" id="registerService" />
-    <dubbo:reference interface="cn.exrick.sso.service.LoginService" id="loginService" />
-    <dubbo:reference interface="cn.exrick.sso.service.CartService" id="cartService" />
-    <dubbo:reference interface="cn.exrick.sso.service.AddressService" id="addressService" />
+    <dubbo:reference interface="cn.exrick.common.service.SearchService" id="searchService" />
+    <dubbo:reference interface="cn.exrick.common.service.SearchItemService" id="searchItemService" />
+    <dubbo:reference interface="cn.exrick.common.service.RegisterService" id="registerService" />
+    <dubbo:reference interface="cn.exrick.common.service.LoginService" id="loginService" />
+    <dubbo:reference interface="cn.exrick.common.service.CartService" id="cartService" />
+    <dubbo:reference interface="cn.exrick.common.service.AddressService" id="addressService" />
+
+
 
 </beans>

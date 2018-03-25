@@ -1,17 +1,17 @@
 package cn.exrick.manager.service.impl;
 
-import cn.exrick.manager.dto.DtoUtil;
-import cn.exrick.manager.dto.MemberDto;
-import cn.exrick.manager.dto.front.Member;
-import cn.exrick.manager.exception.XmallException;
-import cn.exrick.manager.jedis.JedisClient;
-import cn.exrick.manager.mapper.TbMemberMapper;
-import cn.exrick.manager.pojo.DataTablesResult;
-import cn.exrick.manager.pojo.TbMember;
-import cn.exrick.manager.pojo.TbMemberExample;
-import cn.exrick.manager.service.MemberService;
-import cn.exrick.manager.utils.QiniuUtil;
-import cn.exrick.sso.service.LoginService;
+import cn.exrick.common.dto.DtoUtil;
+import cn.exrick.common.dto.MemberDto;
+import cn.exrick.common.dto.Member;
+import cn.exrick.common.exception.XmallException;
+import cn.exrick.common.jedis.JedisClient;
+import cn.exrick.search.mapper.TbMemberMapper;
+import cn.exrick.common.pojo.DataTablesResult;
+import cn.exrick.common.pojo.TbMember;
+import cn.exrick.common.pojo.TbMemberExample;
+import cn.exrick.common.service.MemberService;
+import cn.exrick.common.utils.QiniuUtil;
+import cn.exrick.common.service.LoginService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.google.gson.Gson;
@@ -34,9 +34,6 @@ import java.util.List;
 public class MemberServiceImpl implements MemberService {
 
     final static Logger log= LoggerFactory.getLogger(MemberServiceImpl.class);
-
-    @Autowired
-    private TbMemberMapper tbMemberMapper;
 
     @Autowired
     private LoginService loginService;

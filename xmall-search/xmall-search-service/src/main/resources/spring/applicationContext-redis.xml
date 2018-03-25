@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd">
 	
 	<!-- 连接redis单机版 -->
-	<bean id="jedisClientPool" class="cn.exrick.manager.jedis.JedisClientPool">
+	<bean id="jedisClientPool" class="cn.exrick.common.jedis.JedisClientPool">
 		<property name="jedisPool" ref="jedisPool"></property>
 	</bean>
 	<bean id="jedisPool" class="redis.clients.jedis.JedisPool">

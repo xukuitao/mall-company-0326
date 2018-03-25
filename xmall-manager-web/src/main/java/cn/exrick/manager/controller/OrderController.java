@@ -1,11 +1,11 @@
 package cn.exrick.manager.controller;
 
-import cn.exrick.manager.dto.front.Order;
-import cn.exrick.manager.dto.front.OrderInfo;
-import cn.exrick.manager.pojo.DataTablesResult;
-import cn.exrick.manager.pojo.Result;
-import cn.exrick.manager.service.OrderService;
-import cn.exrick.manager.utils.ResultUtil;
+import cn.exrick.common.dto.Order;
+import cn.exrick.common.dto.OrderInfo;
+import cn.exrick.common.pojo.DataTablesResult;
+import cn.exrick.common.pojo.Result;
+import cn.exrick.common.service.OrderService;
+import cn.exrick.common.utils.ResultUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

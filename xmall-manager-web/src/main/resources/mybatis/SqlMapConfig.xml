@@ -11,4 +11,8 @@
         </plugin>
     </plugins>
 
+    <typeAliases>
+        <package name="cn.exrick.common.pojo"/>
+    </typeAliases>
+
 </configuration>

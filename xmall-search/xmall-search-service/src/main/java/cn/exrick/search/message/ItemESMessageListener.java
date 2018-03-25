@@ -4,7 +4,7 @@ import javax.jms.Message;
 import javax.jms.MessageListener;
 import javax.jms.TextMessage;
 
-import cn.exrick.manager.pojo.SearchItem;
+import cn.exrick.common.pojo.SearchItem;
 import cn.exrick.search.mapper.ItemMapper;
 import org.elasticsearch.action.delete.DeleteResponse;
 import org.elasticsearch.action.index.IndexResponse;

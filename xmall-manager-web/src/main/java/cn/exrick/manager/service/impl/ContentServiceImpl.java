@@ -1,16 +1,17 @@
 package cn.exrick.manager.service.impl;
 
-import cn.exrick.manager.dto.ContentDto;
-import cn.exrick.manager.dto.DtoUtil;
-import cn.exrick.manager.dto.front.HomeFloors;
-import cn.exrick.manager.dto.front.Product;
-import cn.exrick.manager.dto.front.ProductDet;
-import cn.exrick.manager.dto.front.ProductHome;
-import cn.exrick.manager.exception.XmallException;
-import cn.exrick.manager.jedis.JedisClient;
+import cn.exrick.common.exception.XmallException;
+import cn.exrick.common.jedis.JedisClient;
+import cn.exrick.common.pojo.*;
+import cn.exrick.common.dto.ContentDto;
+import cn.exrick.common.dto.DtoUtil;
+import cn.exrick.common.dto.HomeFloors;
+import cn.exrick.common.dto.Product;
+import cn.exrick.common.dto.ProductDet;
+import cn.exrick.common.dto.ProductHome;
 import cn.exrick.manager.mapper.*;
-import cn.exrick.manager.pojo.*;
-import cn.exrick.manager.service.ContentService;
+import cn.exrick.common.service.ContentService;
+import cn.exrick.search.mapper.TbItemMapper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.google.gson.Gson;

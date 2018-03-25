@@ -1,9 +1,9 @@
 package cn.exrick.manager.controller;
 
-import cn.exrick.manager.pojo.KindEditorResult;
-import cn.exrick.manager.pojo.Result;
-import cn.exrick.manager.utils.QiniuUtil;
-import cn.exrick.manager.utils.ResultUtil;
+import cn.exrick.common.pojo.KindEditorResult;
+import cn.exrick.common.pojo.Result;
+import cn.exrick.common.utils.QiniuUtil;
+import cn.exrick.common.utils.ResultUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.RequestMapping;

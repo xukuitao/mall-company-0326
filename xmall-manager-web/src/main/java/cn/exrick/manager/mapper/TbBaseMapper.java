@@ -1,10 +1,12 @@
 package cn.exrick.manager.mapper;
 
-import cn.exrick.manager.pojo.TbBase;
-import cn.exrick.manager.pojo.TbBaseExample;
+import cn.exrick.common.pojo.TbBase;
+import cn.exrick.common.pojo.TbBaseExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface TbBaseMapper {
     long countByExample(TbBaseExample example);
 

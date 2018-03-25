@@ -16,10 +16,9 @@
         <option value="$PROJECT_DIR$/xmall-manager/pom.xml" />
         <option value="$PROJECT_DIR$/generatorSqlmapCustom/pom.xml" />
         <option value="$PROJECT_DIR$/xmall-manager-web/pom.xml" />
-        <option value="$PROJECT_DIR$/xmall-content/pom.xml" />
-        <option value="$PROJECT_DIR$/xmall-search/pom.xml" />
         <option value="$PROJECT_DIR$/xmall-search/xmall-search-service/pom.xml" />
         <option value="$PROJECT_DIR$/xmall-sso/pom.xml" />
+        <option value="I:/market-master/market-back-market-0322/xmall-common/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

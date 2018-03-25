@@ -2,10 +2,10 @@ package cn.exrick.manager.service.impl;
 
 import cn.exrick.common.exception.XmallException;
 import cn.exrick.common.pojo.DataTablesResult;
+import cn.exrick.common.service.ThanksService;
 import cn.exrick.manager.mapper.TbThanksMapper;
-import cn.exrick.manager.pojo.TbThanks;
-import cn.exrick.manager.pojo.TbThanksExample;
-import service.ThanksService;
+import cn.exrick.common.pojo.TbThanks;
+import cn.exrick.common.pojo.TbThanksExample;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;

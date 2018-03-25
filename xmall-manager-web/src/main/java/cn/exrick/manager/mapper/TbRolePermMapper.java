@@ -1,10 +1,12 @@
 package cn.exrick.manager.mapper;
 
-import cn.exrick.manager.pojo.TbRolePerm;
-import cn.exrick.manager.pojo.TbRolePermExample;
+import cn.exrick.common.pojo.TbRolePerm;
+import cn.exrick.common.pojo.TbRolePermExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface TbRolePermMapper {
     long countByExample(TbRolePermExample example);
 

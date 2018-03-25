@@ -83,7 +83,7 @@
     consign_time, end_time, close_time, shipping_name, shipping_code, user_id, buyer_message, 
     buyer_nick, buyer_rate
   </sql>
-  <select id="selectByExample" parameterType="cn.exrick.manager.pojo.TbOrderExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="cn.exrick.common.pojo.TbOrderExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -107,7 +107,7 @@
     delete from tb_order
     where order_id = #{orderId,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="cn.exrick.manager.pojo.TbOrderExample">
+  <delete id="deleteByExample" parameterType="cn.exrick.common.pojo.TbOrderExample">
     delete from tb_order
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -236,7 +236,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="cn.exrick.manager.pojo.TbOrderExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="cn.exrick.common.pojo.TbOrderExample" resultType="java.lang.Long">
     select count(*) from tb_order
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />

@@ -1,11 +1,12 @@
 package cn.exrick.manager.mapper;
 
-import cn.exrick.manager.pojo.TbOrderShipping;
-import cn.exrick.manager.pojo.TbOrderShippingExample;
+import cn.exrick.common.pojo.TbOrderShipping;
+import cn.exrick.common.pojo.TbOrderShippingExample;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
-
+@Component
 public interface TbOrderShippingMapper {
     long countByExample(TbOrderShippingExample example);
 

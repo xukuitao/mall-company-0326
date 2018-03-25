@@ -1,17 +1,17 @@
 package cn.exrick.manager.service.impl;
 
-import cn.exrick.manager.dto.front.CartProduct;
-import cn.exrick.manager.dto.front.Order;
-import cn.exrick.manager.dto.front.OrderInfo;
-import cn.exrick.manager.exception.XmallException;
-import cn.exrick.manager.jedis.JedisClient;
+import cn.exrick.common.exception.XmallException;
+import cn.exrick.common.jedis.JedisClient;
+import cn.exrick.common.pojo.*;
+import cn.exrick.common.dto.CartProduct;
+import cn.exrick.common.dto.Order;
+import cn.exrick.common.dto.OrderInfo;
 import cn.exrick.manager.mapper.TbMemberMapper;
 import cn.exrick.manager.mapper.TbOrderItemMapper;
 import cn.exrick.manager.mapper.TbOrderMapper;
 import cn.exrick.manager.mapper.TbOrderShippingMapper;
-import cn.exrick.manager.pojo.*;
-import cn.exrick.manager.service.OrderService;
-import cn.exrick.manager.utils.IDUtil;
+import cn.exrick.common.service.OrderService;
+import cn.exrick.common.utils.IDUtil;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,16 +27,6 @@ import java.util.List;
  */
 @Service
 public class OrderServiceImpl implements OrderService {
-
-    @Autowired
-    private TbOrderMapper tbOrderMapper;
-    @Autowired
-    private TbOrderItemMapper tbOrderItemMapper;
-    @Autowired
-    private TbOrderShippingMapper tbOrderShippingMapper;
-
-
-
 
     @Autowired
     private TbMemberMapper tbMemberMapper;    //用户

@@ -1,12 +1,12 @@
 package cn.exrick.manager.service.impl;
 
-import cn.exrick.manager.exception.XmallException;
+import cn.exrick.common.exception.XmallException;
+import cn.exrick.common.pojo.*;
 import cn.exrick.manager.mapper.TbBaseMapper;
 import cn.exrick.manager.mapper.TbLogMapper;
 import cn.exrick.manager.mapper.TbOrderItemMapper;
 import cn.exrick.manager.mapper.TbShiroFilterMapper;
-import cn.exrick.manager.pojo.*;
-import cn.exrick.manager.service.SystemService;
+import cn.exrick.common.service.SystemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -19,9 +19,9 @@ import java.util.List;
 @Service
 public class SystemServiceImpl implements SystemService {
 
-    @Autowired
+    @Autowired(required = false)
     private TbShiroFilterMapper tbShiroFilterMapper;
-    @Autowired
+    @Autowired(required = false)
     private TbBaseMapper tbBaseMapper;
     @Autowired
     private TbLogMapper tbLogMapper;

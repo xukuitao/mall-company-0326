@@ -1,11 +1,11 @@
 package cn.exrick.manager.controller;
 
-import cn.exrick.manager.dto.ContentCatDto;
-import cn.exrick.manager.dto.DtoUtil;
-import cn.exrick.manager.pojo.Result;
-import cn.exrick.manager.pojo.ZTreeNode;
-import cn.exrick.manager.service.ContentCatService;
-import cn.exrick.manager.utils.ResultUtil;
+import cn.exrick.common.dto.ContentCatDto;
+import cn.exrick.common.dto.DtoUtil;
+import cn.exrick.common.pojo.Result;
+import cn.exrick.common.pojo.ZTreeNode;
+import cn.exrick.common.service.ContentCatService;
+import cn.exrick.common.utils.ResultUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;

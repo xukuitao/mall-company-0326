@@ -1,9 +1,9 @@
 package cn.exrick.manager.controller;
 
-import cn.exrick.manager.pojo.Result;
-import cn.exrick.manager.pojo.TbAddress;
-import cn.exrick.manager.utils.ResultUtil;
-import cn.exrick.sso.service.AddressService;
+import cn.exrick.common.pojo.Result;
+import cn.exrick.common.pojo.TbAddress;
+import cn.exrick.common.utils.ResultUtil;
+import cn.exrick.common.service.AddressService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;

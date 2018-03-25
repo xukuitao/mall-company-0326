@@ -1,10 +1,13 @@
 package cn.exrick.manager.mapper;
 
-import cn.exrick.manager.pojo.TbMember;
-import cn.exrick.manager.pojo.TbMemberExample;
-import java.util.List;
+import cn.exrick.common.pojo.TbMember;
+import cn.exrick.common.pojo.TbMemberExample;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
+import java.util.List;
+
+@Component
 public interface TbMemberMapper {
     long countByExample(TbMemberExample example);
 
@@ -28,11 +31,11 @@ public interface TbMemberMapper {
 
     int updateByPrimaryKey(TbMember record);
 
-    List<TbMember> selectByMemberInfo(@Param("search") String search,@Param("minDate") String minDate,
-                                      @Param("maxDate") String maxDate,@Param("orderCol") String orderCol,
+    List<TbMember> selectByMemberInfo(@Param("search") String search, @Param("minDate") String minDate,
+                                      @Param("maxDate") String maxDate, @Param("orderCol") String orderCol,
                                       @Param("orderDir") String orderDir);
 
-    List<TbMember> selectByRemoveMemberInfo(@Param("search") String search,@Param("minDate") String minDate,
-                                            @Param("maxDate") String maxDate,@Param("orderCol") String orderCol,
+    List<TbMember> selectByRemoveMemberInfo(@Param("search") String search, @Param("minDate") String minDate,
+                                            @Param("maxDate") String maxDate, @Param("orderCol") String orderCol,
                                             @Param("orderDir") String orderDir);
 }

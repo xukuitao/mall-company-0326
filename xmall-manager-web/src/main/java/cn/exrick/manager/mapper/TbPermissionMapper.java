@@ -1,10 +1,12 @@
 package cn.exrick.manager.mapper;
 
-import cn.exrick.manager.pojo.TbPermission;
-import cn.exrick.manager.pojo.TbPermissionExample;
+import cn.exrick.common.pojo.TbPermission;
+import cn.exrick.common.pojo.TbPermissionExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface TbPermissionMapper {
     long countByExample(TbPermissionExample example);
 

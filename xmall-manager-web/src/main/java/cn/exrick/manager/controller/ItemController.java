@@ -1,11 +1,11 @@
 package cn.exrick.manager.controller;
 
-import cn.exrick.manager.dto.ItemDto;
-import cn.exrick.manager.pojo.DataTablesResult;
-import cn.exrick.manager.pojo.Result;
-import cn.exrick.manager.pojo.TbItem;
-import cn.exrick.manager.service.ItemService;
-import cn.exrick.manager.utils.ResultUtil;
+import cn.exrick.common.dto.ItemDto;
+import cn.exrick.common.pojo.DataTablesResult;
+import cn.exrick.common.pojo.Result;
+import cn.exrick.common.pojo.TbItem;
+import cn.exrick.common.service.ItemService;
+import cn.exrick.common.utils.ResultUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;

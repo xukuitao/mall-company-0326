@@ -18,29 +18,16 @@
     <!-- 用dubbo协议在20880端口暴露服务 -->
     <dubbo:protocol name="dubbo" port="20880" />
     <!-- 声明需要暴露的服务接口 -->
-    <dubbo:service interface="cn.exrick.manager.service.ItemService" ref="itemServiceImpl" timeout="10000"/>
-    <!--<dubbo:service interface="cn.exrick.manager.MemberService" ref="memberServiceImpl" timeout="10000"/>-->
-    <dubbo:service interface="cn.exrick.manager.service.ItemCatService" ref="itemCatServiceImpl" timeout="10000"/>
-    <dubbo:service interface="cn.exrick.manager.service.UserService" ref="userServiceImpl" timeout="10000"/>
-    <!--<dubbo:service interface="cn.exrick.manager.OrderService" ref="orderServiceImpl" timeout="10000"/>-->
-    <dubbo:service interface="cn.exrick.manager.service.ThanksService" ref="thanksServiceImpl" timeout="10000"/>
-    <dubbo:service interface="cn.exrick.manager.service.SystemService" ref="systemServiceImpl" timeout="10000"/>
-
-
-
-
-
-    <!-- 使用dubbo发布服务 -->
-    <!-- 提供方应用信息，用于计算依赖关系 -->
-    <dubbo:application name="xmall-content" />
-    <dubbo:registry protocol="zookeeper"
-                    address="127.0.0.1:2181" />
-    <!-- 用dubbo协议在20880端口暴露服务 -->
-    <dubbo:protocol name="dubbo" port="20881" />
-    <!-- 声明需要暴露的服务接口 -->
-    <dubbo:service interface="cn.exrick.manager.service.ContentCatService" ref="contentCatServiceImpl" timeout="10000"/>
-    <dubbo:service interface="cn.exrick.manager.service.ContentService" ref="contentServiceImpl" timeout="10000"/>
-    <dubbo:service interface="cn.exrick.manager.service.ContentImageService" ref="contentImageServiceImpl" timeout="10000"/>
+    <dubbo:service interface="cn.exrick.common.service.ItemService" ref="itemServiceImpl" timeout="10000"/>
+    <dubbo:service interface="cn.exrick.common.service.MemberService" ref="memberServiceImpl" timeout="10000"/>
+    <dubbo:service interface="cn.exrick.common.service.ItemCatService" ref="itemCatServiceImpl" timeout="10000"/>
+    <dubbo:service interface="cn.exrick.common.service.UserService" ref="userServiceImpl" timeout="10000"/>
+    <dubbo:service interface="cn.exrick.common.service.OrderService" ref="orderServiceImpl" timeout="10000"/>
+    <dubbo:service interface="cn.exrick.common.service.ThanksService" ref="thanksServiceImpl" timeout="10000"/>
+    <dubbo:service interface="cn.exrick.common.service.SystemService" ref="systemServiceImpl" timeout="10000"/>
+    <dubbo:service interface="cn.exrick.common.service.ContentCatService" ref="contentCatServiceImpl" timeout="10000"/>
+    <dubbo:service interface="cn.exrick.common.service.ContentService" ref="contentServiceImpl" timeout="10000"/>
+    <dubbo:service interface="cn.exrick.common.service.ContentImageService" ref="contentImageServiceImpl" timeout="10000"/>
 
 
 

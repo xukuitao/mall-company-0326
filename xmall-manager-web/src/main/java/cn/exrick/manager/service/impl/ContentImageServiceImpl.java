@@ -1,15 +1,15 @@
 package cn.exrick.manager.service.impl;
 
-import common.exception.XmallException;
-import common.jedis.JedisClient;
-import common.pojo.DataTablesResult;
-import service.ContentImageService;
-import cn.exrick.manager.dto.DtoUtil;
-import cn.exrick.manager.dto.ImageDto;
+import cn.exrick.common.dto.DtoUtil;
+import cn.exrick.common.dto.ImageDto;
+import cn.exrick.common.exception.XmallException;
+import cn.exrick.common.jedis.JedisClient;
+import cn.exrick.common.pojo.DataTablesResult;
+import cn.exrick.common.service.ContentImageService;
 import cn.exrick.manager.mapper.TbImageMapper;
-import cn.exrick.manager.pojo.TbContentCategory;
-import cn.exrick.manager.pojo.TbImage;
-import cn.exrick.manager.pojo.TbImageExample;
+import cn.exrick.common.pojo.TbContentCategory;
+import cn.exrick.common.pojo.TbImage;
+import cn.exrick.common.pojo.TbImageExample;
 import cn.exrick.manager.mapper.TbContentCategoryMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

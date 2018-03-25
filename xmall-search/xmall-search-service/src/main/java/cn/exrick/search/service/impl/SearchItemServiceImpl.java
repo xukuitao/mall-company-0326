@@ -1,8 +1,8 @@
 package cn.exrick.search.service.impl;
 
-import cn.exrick.manager.exception.XmallException;
-import cn.exrick.manager.pojo.SearchItem;
-import cn.exrick.search.service.SearchItemService;
+import cn.exrick.common.exception.XmallException;
+import cn.exrick.common.pojo.SearchItem;
+import cn.exrick.common.service.SearchItemService;
 import cn.exrick.search.mapper.ItemMapper;
 import org.elasticsearch.action.bulk.BulkRequestBuilder;
 import org.elasticsearch.action.bulk.BulkResponse;

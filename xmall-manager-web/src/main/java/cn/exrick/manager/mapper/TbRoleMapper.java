@@ -1,11 +1,13 @@
 package cn.exrick.manager.mapper;
 
-import cn.exrick.manager.pojo.TbRole;
-import cn.exrick.manager.pojo.TbRoleExample;
+import cn.exrick.common.pojo.TbRole;
+import cn.exrick.common.pojo.TbRoleExample;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
+@Component
 public interface TbRoleMapper {
     long countByExample(TbRoleExample example);
 

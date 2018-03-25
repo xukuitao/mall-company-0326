@@ -1,10 +1,12 @@
 package cn.exrick.manager.mapper;
 
-import cn.exrick.manager.pojo.TbShiroFilter;
-import cn.exrick.manager.pojo.TbShiroFilterExample;
+import cn.exrick.common.pojo.TbShiroFilter;
+import cn.exrick.common.pojo.TbShiroFilterExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface TbShiroFilterMapper {
     long countByExample(TbShiroFilterExample example);
 

@@ -1,7 +1,8 @@
 package cn.exrick.manager.exception;
 
-import cn.exrick.manager.pojo.Result;
-import cn.exrick.manager.utils.ResultUtil;
+import cn.exrick.common.exception.XmallException;
+import cn.exrick.common.pojo.Result;
+import cn.exrick.common.utils.ResultUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

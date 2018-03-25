@@ -1,11 +1,12 @@
 package cn.exrick.manager.mapper;
 
-import cn.exrick.manager.pojo.TbItemParamItemExample;
-import cn.exrick.manager.pojo.TbItemParamItem;
+import cn.exrick.common.pojo.TbItemParamItemExample;
+import cn.exrick.common.pojo.TbItemParamItem;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
-
+@Component
 public interface TbItemParamItemMapper {
     long countByExample(TbItemParamItemExample example);
 

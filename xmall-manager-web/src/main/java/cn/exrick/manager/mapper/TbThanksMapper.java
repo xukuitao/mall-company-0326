@@ -1,10 +1,13 @@
 package cn.exrick.manager.mapper;
 
-import cn.exrick.manager.pojo.TbThanks;
-import cn.exrick.manager.pojo.TbThanksExample;
+import cn.exrick.common.pojo.TbThanks;
+import cn.exrick.common.pojo.TbThanksExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface TbThanksMapper {
     long countByExample(TbThanksExample example);
 

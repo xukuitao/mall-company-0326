@@ -2,11 +2,11 @@ package cn.exrick.manager.service.impl;
 
 import cn.exrick.common.exception.XmallException;
 import cn.exrick.common.pojo.ZTreeNode;
-import cn.exrick.manager.dto.DtoUtil;
+import cn.exrick.common.dto.DtoUtil;
+import cn.exrick.common.service.ItemCatService;
 import cn.exrick.manager.mapper.TbItemCatMapper;
-import cn.exrick.manager.pojo.TbItemCat;
-import cn.exrick.manager.pojo.TbItemCatExample;
-import service.ItemCatService;
+import cn.exrick.common.pojo.TbItemCat;
+import cn.exrick.common.pojo.TbItemCatExample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

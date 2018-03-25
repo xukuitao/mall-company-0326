@@ -1,10 +1,10 @@
 package cn.exrick.manager.controller;
 
-import cn.exrick.manager.pojo.*;
-import cn.exrick.manager.utils.GeetestLib;
-import cn.exrick.manager.utils.ResultUtil;
-import cn.exrick.manager.utils.SystemControllerLog;
-import cn.exrick.manager.service.UserService;
+import cn.exrick.common.pojo.*;
+import cn.exrick.common.utils.GeetestLib;
+import cn.exrick.common.utils.ResultUtil;
+import cn.exrick.common.utils.SystemControllerLog;
+import cn.exrick.common.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.SecurityUtils;

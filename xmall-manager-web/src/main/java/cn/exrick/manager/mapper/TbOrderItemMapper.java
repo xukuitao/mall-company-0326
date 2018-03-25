@@ -1,11 +1,12 @@
 package cn.exrick.manager.mapper;
 
-import cn.exrick.manager.pojo.TbOrderItem;
-import cn.exrick.manager.pojo.TbOrderItemExample;
+import cn.exrick.common.pojo.TbOrderItem;
+import cn.exrick.common.pojo.TbOrderItemExample;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
-
+@Component
 public interface TbOrderItemMapper {
     long countByExample(TbOrderItemExample example);
 

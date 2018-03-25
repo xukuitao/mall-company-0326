@@ -1,14 +1,14 @@
 package cn.exrick.manager.controller;
 
-import cn.exrick.manager.dto.front.ProductDet;
-import cn.exrick.manager.dto.front.ProductHome;
-import cn.exrick.manager.pojo.AllGoodsResult;
-import cn.exrick.manager.pojo.Result;
-import cn.exrick.manager.pojo.SearchResult;
-import cn.exrick.manager.service.ContentService;
-import cn.exrick.manager.utils.ResultUtil;
-import cn.exrick.search.service.SearchItemService;
-import cn.exrick.search.service.SearchService;
+import cn.exrick.common.dto.ProductDet;
+import cn.exrick.common.dto.ProductHome;
+import cn.exrick.common.pojo.AllGoodsResult;
+import cn.exrick.common.pojo.Result;
+import cn.exrick.common.pojo.SearchResult;
+import cn.exrick.common.service.ContentService;
+import cn.exrick.common.utils.ResultUtil;
+import cn.exrick.common.service.SearchItemService;
+import cn.exrick.common.service.SearchService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
