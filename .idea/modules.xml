@@ -4,7 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/generatorSqlmapCustom/generatorSqlmapCustom.iml" filepath="$PROJECT_DIR$/generatorSqlmapCustom/generatorSqlmapCustom.iml" />
       <module fileurl="file://$PROJECT_DIR$/generatorSqlmapCustom/generatorSqlmapCustom.iml" filepath="$PROJECT_DIR$/generatorSqlmapCustom/generatorSqlmapCustom.iml" />
-      <module fileurl="file://E:/market-back-market-0322/xmall-common/xmall-common.iml" filepath="E:/market-back-market-0322/xmall-common/xmall-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/xmall-common/xmall-common.iml" filepath="$PROJECT_DIR$/xmall-common/xmall-common.iml" />
       <module fileurl="file://I:/market-master/market-back-market-0322/xmall-common/xmall-common.iml" filepath="I:/market-master/market-back-market-0322/xmall-common/xmall-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/xmall-manager-web/xmall-manager-web.iml" filepath="$PROJECT_DIR$/xmall-manager-web/xmall-manager-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/xmall-manager-web/xmall-manager-web.iml" filepath="$PROJECT_DIR$/xmall-manager-web/xmall-manager-web.iml" />
