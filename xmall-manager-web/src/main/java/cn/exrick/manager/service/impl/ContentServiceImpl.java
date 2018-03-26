@@ -3,12 +3,6 @@ package cn.exrick.manager.service.impl;
 import cn.exrick.common.exception.XmallException;
 import cn.exrick.common.jedis.JedisClient;
 import cn.exrick.common.pojo.*;
-import cn.exrick.common.dto.ContentDto;
-import cn.exrick.common.dto.DtoUtil;
-import cn.exrick.common.dto.HomeFloors;
-import cn.exrick.common.dto.Product;
-import cn.exrick.common.dto.ProductDet;
-import cn.exrick.common.dto.ProductHome;
 import cn.exrick.manager.mapper.*;
 import cn.exrick.common.service.ContentService;
 import cn.exrick.search.mapper.TbItemMapper;
@@ -341,7 +335,7 @@ public class ContentServiceImpl implements ContentService {
         //判断条件
         String orderCol="created";
         String orderDir="desc";
-        if(sort.isEmpty()||sort==null){
+        if(sort.isEmpty()){
             orderCol="created";
             orderDir="desc";
         }else if(sort.equals("1")){

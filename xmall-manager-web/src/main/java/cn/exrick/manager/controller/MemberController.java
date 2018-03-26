@@ -1,17 +1,11 @@
 package cn.exrick.manager.controller;
 
-import cn.exrick.common.dto.MemberDto;
-import cn.exrick.common.dto.CommonDto;
-import cn.exrick.common.dto.Member;
-import cn.exrick.common.dto.MemberLoginRegist;
-import cn.exrick.common.pojo.DataTablesResult;
-import cn.exrick.common.pojo.Result;
-import cn.exrick.common.pojo.TbMember;
+import cn.exrick.common.pojo.*;
+import cn.exrick.common.service.LoginService;
 import cn.exrick.common.service.MemberService;
+import cn.exrick.common.service.RegisterService;
 import cn.exrick.common.utils.GeetestLib;
 import cn.exrick.common.utils.ResultUtil;
-import cn.exrick.common.service.LoginService;
-import cn.exrick.common.service.RegisterService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
@@ -63,8 +57,7 @@ public class MemberController {
         if(!search.isEmpty()){
             searchKey=search;
         }
-        DataTablesResult result=memberService.getMemberList(draw,start,length,searchKey,minDate,maxDate,orderColumn,orderDir);
-        return result;
+        return memberService.getMemberList(draw,start,length,searchKey,minDate,maxDate,orderColumn,orderDir);
     }
 
     @RequestMapping(value = "/member/list/remove",method = RequestMethod.GET)
@@ -87,8 +80,7 @@ public class MemberController {
         if(!search.isEmpty()){
             searchKey=search;
         }
-        DataTablesResult result=memberService.getRemoveMemberList(draw,start,length,searchKey,minDate,maxDate,orderColumn,orderDir);
-        return result;
+        return memberService.getRemoveMemberList(draw,start,length,searchKey,minDate,maxDate,orderColumn,orderDir);
     }
 
     @RequestMapping(value = "/member/count",method = RequestMethod.GET)
@@ -173,60 +165,42 @@ public class MemberController {
     @ApiOperation(value = "验证注册名是否存在")
     public Boolean validateUsername(String username){
 
-        if(memberService.getMemberByUsername(username)!=null){
-            return false;
-        }
-        return true;
+        return memberService.getMemberByUsername(username) == null;
     }
 
     @RequestMapping(value = "/member/phone",method = RequestMethod.GET)
     @ApiOperation(value = "验证注册手机是否存在")
     public Boolean validatePhone(String phone){
 
-        if(memberService.getMemberByPhone(phone)!=null){
-            return false;
-        }
-        return true;
+        return memberService.getMemberByPhone(phone) == null;
     }
 
     @RequestMapping(value = "/member/email",method = RequestMethod.GET)
     @ApiOperation(value = "验证注册邮箱是否存在")
     public Boolean validateEmail(String email){
 
-        if(memberService.getMemberByEmail(email)!=null){
-            return false;
-        }
-        return true;
+        return memberService.getMemberByEmail(email) == null;
     }
 
     @RequestMapping(value = "/member/edit/{id}/username",method = RequestMethod.GET)
     @ApiOperation(value = "验证编辑用户名是否存在")
     public Boolean validateEditUsername(@PathVariable Long id,String username){
 
-        if(memberService.getMemberByEditUsername(id,username)!=null){
-            return false;
-        }
-        return true;
+        return memberService.getMemberByEditUsername(id, username) == null;
     }
 
     @RequestMapping(value = "/member/edit/{id}/phone",method = RequestMethod.GET)
     @ApiOperation(value = "验证编辑手机是否存在")
     public Boolean validateEditPhone(@PathVariable Long id,String phone){
 
-        if(memberService.getMemberByEditPhone(id,phone)!=null){
-            return false;
-        }
-        return true;
+        return memberService.getMemberByEditPhone(id, phone) == null;
     }
 
     @RequestMapping(value = "/member/edit/{id}/email",method = RequestMethod.GET)
     @ApiOperation(value = "验证编辑邮箱是否存在")
     public Boolean validateEditEmail(@PathVariable Long id,String email){
 
-        if(memberService.getMemberByEditEmail(id,email)!=null){
-            return false;
-        }
-        return true;
+        return memberService.getMemberByEditEmail(id, email) == null;
     }
 
 
@@ -268,20 +242,9 @@ public class MemberController {
         int gt_server_status_code = (Integer) request.getSession().getAttribute(gtSdk.gtServerStatusSessionKey);
 
         //自定义参数,可选择添加
-        HashMap<String, String> param = new HashMap<String, String>();
+        HashMap<String, String> param = new HashMap<>();
 
-        int gtResult = 0;
-
-        if (gt_server_status_code == 1) {
-            //gt-server正常，向gt-server进行二次验证
-            gtResult = gtSdk.enhencedValidateRequest(challenge, validate, seccode, param);
-            System.out.println(gtResult);
-        } else {
-            // gt-server非正常情况下，进行failback模式验证
-            System.out.println("failback:use your own server captcha validate");
-            gtResult = gtSdk.failbackValidateRequest(challenge, validate, seccode);
-            System.out.println(gtResult);
-        }
+        int gtResult = getGtResult(gtSdk, challenge, validate, seccode, gt_server_status_code, param);
 
         Member member=new Member();
         if (gtResult == 1) {
@@ -309,7 +272,7 @@ public class MemberController {
     public Result<Object> logout(@RequestParam(defaultValue = "") String token){
 
         loginService.logout(token);
-        return new ResultUtil<Object>().setData(null);
+        return new ResultUtil<>().setData(null);
     }
 
     @RequestMapping(value = "/member/register",method = RequestMethod.POST)
@@ -328,10 +291,28 @@ public class MemberController {
         int gt_server_status_code = (Integer) request.getSession().getAttribute(gtSdk.gtServerStatusSessionKey);
 
         //自定义参数,可选择添加
-        HashMap<String, String> param = new HashMap<String, String>();
+        HashMap<String, String> param = new HashMap<>();
 
-        int gtResult = 0;
+        int gtResult = getGtResult(gtSdk, challenge, validate, seccode, gt_server_status_code, param);
 
+        if (gtResult == 1) {
+            // 验证成功
+            int result=registerService.register(memberLoginRegist.getUserName(), memberLoginRegist.getUserPwd());
+            if(result==0){
+                return new ResultUtil<>().setErrorMsg("该用户名已被注册");
+            }else if(result==-1){
+                return new ResultUtil<>().setErrorMsg("用户名密码不能为空");
+            }
+            return new ResultUtil<>().setData(result);
+        }
+        else {
+            // 验证失败
+            return new ResultUtil<>().setErrorMsg("验证失败");
+        }
+    }
+
+    static int getGtResult(GeetestLib gtSdk, String challenge, String validate, String seccode, int gt_server_status_code, HashMap<String, String> param) {
+        int gtResult;
         if (gt_server_status_code == 1) {
             //gt-server正常，向gt-server进行二次验证
             gtResult = gtSdk.enhencedValidateRequest(challenge, validate, seccode, param);
@@ -342,21 +323,7 @@ public class MemberController {
             gtResult = gtSdk.failbackValidateRequest(challenge, validate, seccode);
             System.out.println(gtResult);
         }
-
-        if (gtResult == 1) {
-            // 验证成功
-            int result=registerService.register(memberLoginRegist.getUserName(), memberLoginRegist.getUserPwd());
-            if(result==0){
-                return new ResultUtil<Object>().setErrorMsg("该用户名已被注册");
-            }else if(result==-1){
-                return new ResultUtil<Object>().setErrorMsg("用户名密码不能为空");
-            }
-            return new ResultUtil<Object>().setData(result);
-        }
-        else {
-            // 验证失败
-            return new ResultUtil<Object>().setErrorMsg("验证失败");
-        }
+        return gtResult;
     }
 
     @RequestMapping(value = "/member/imgaeUpload",method = RequestMethod.POST)
@@ -364,6 +331,6 @@ public class MemberController {
     public Result<Object> imgaeUpload(@RequestBody CommonDto common){
 
         String imgPath = memberService.imageUpload(common.getUserId(),common.getToken(),common.getImgData());
-        return new ResultUtil<Object>().setData(imgPath);
+        return new ResultUtil<>().setData(imgPath);
     }
 }

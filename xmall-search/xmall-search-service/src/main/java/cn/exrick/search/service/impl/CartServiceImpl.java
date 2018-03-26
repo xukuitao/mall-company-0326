@@ -1,8 +1,8 @@
 package cn.exrick.search.service.impl;
 
-import cn.exrick.common.dto.DtoUtil;
-import cn.exrick.common.dto.CartProduct;
 import cn.exrick.common.jedis.JedisClient;
+import cn.exrick.common.pojo.CartProduct;
+import cn.exrick.common.pojo.DtoUtil;
 import cn.exrick.common.pojo.TbItem;
 import cn.exrick.common.service.CartService;
 import cn.exrick.search.mapper.TbItemMapper;

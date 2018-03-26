@@ -1,9 +1,9 @@
 package cn.exrick.search.service.impl;
 
 
-import cn.exrick.common.dto.DtoUtil;
-import cn.exrick.common.dto.Member;
 import cn.exrick.common.jedis.JedisClient;
+import cn.exrick.common.pojo.DtoUtil;
+import cn.exrick.common.pojo.Member;
 import cn.exrick.common.pojo.TbMember;
 import cn.exrick.common.pojo.TbMemberExample;
 import cn.exrick.common.service.LoginService;

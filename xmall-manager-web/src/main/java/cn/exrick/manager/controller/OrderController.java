@@ -1,8 +1,8 @@
 package cn.exrick.manager.controller;
 
-import cn.exrick.common.dto.Order;
-import cn.exrick.common.dto.OrderInfo;
 import cn.exrick.common.pojo.DataTablesResult;
+import cn.exrick.common.pojo.Order;
+import cn.exrick.common.pojo.OrderInfo;
 import cn.exrick.common.pojo.Result;
 import cn.exrick.common.service.OrderService;
 import cn.exrick.common.utils.ResultUtil;

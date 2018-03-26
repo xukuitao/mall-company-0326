@@ -2,7 +2,6 @@ package cn.exrick.manager.service.impl;
 
 import cn.exrick.common.exception.XmallException;
 import cn.exrick.common.pojo.*;
-import cn.exrick.common.dto.RoleDto;
 import cn.exrick.common.service.UserService;
 import cn.exrick.manager.mapper.TbPermissionMapper;
 import cn.exrick.manager.mapper.TbRoleMapper;

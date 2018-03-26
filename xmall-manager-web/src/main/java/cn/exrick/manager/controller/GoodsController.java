@@ -1,18 +1,17 @@
 package cn.exrick.manager.controller;
 
-import cn.exrick.common.dto.ProductDet;
-import cn.exrick.common.dto.ProductHome;
-import cn.exrick.common.pojo.AllGoodsResult;
-import cn.exrick.common.pojo.Result;
-import cn.exrick.common.pojo.SearchResult;
+import cn.exrick.common.pojo.*;
 import cn.exrick.common.service.ContentService;
-import cn.exrick.common.utils.ResultUtil;
 import cn.exrick.common.service.SearchItemService;
 import cn.exrick.common.service.SearchService;
+import cn.exrick.common.utils.ResultUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @Api(description = "商品页面展示")

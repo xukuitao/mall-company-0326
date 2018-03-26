@@ -1,10 +1,10 @@
 package cn.exrick.manager.controller;
 
 import cn.exrick.common.pojo.*;
+import cn.exrick.common.service.UserService;
 import cn.exrick.common.utils.GeetestLib;
 import cn.exrick.common.utils.ResultUtil;
-import cn.exrick.common.utils.SystemControllerLog;
-import cn.exrick.common.service.UserService;
+import cn.exrick.manager.annotation.SystemControllerLog;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.shiro.SecurityUtils;
@@ -68,21 +68,12 @@ public class UserController {
         int gt_server_status_code = (Integer) request.getSession().getAttribute(gtSdk.gtServerStatusSessionKey);
 
         //自定义参数,可选择添加
-        HashMap<String, String> param = new HashMap<String, String>();
+        HashMap<String, String> param = new HashMap<>();
 
-        int gtResult = 0;
 
-        if (gt_server_status_code == 1) {
-            //gt-server正常，向gt-server进行二次验证
-            gtResult = gtSdk.enhencedValidateRequest(challenge, validate, seccode, param);
-            System.out.println(gtResult);
-        } else {
-            // gt-server非正常情况下，进行failback模式验证
-            System.out.println("failback:use your own server captcha validate");
-            gtResult = gtSdk.failbackValidateRequest(challenge, validate, seccode);
-            System.out.println(gtResult);
-        }
+        int gtResult = MemberController.getGtResult(gtSdk, challenge, validate, seccode, gt_server_status_code, param);
 
+        // 验证失败
         if (gtResult == 1) {
             // 验证成功
             Subject subject = SecurityUtils.getSubject() ;
@@ -91,15 +82,12 @@ public class UserController {
             UsernamePasswordToken token = new UsernamePasswordToken(username,md5Pass);
             try {
                 subject.login(token);
-                return new ResultUtil<Object>().setData(null);
+                return new ResultUtil<>().setData(null);
             }catch (Exception e){
-                return new ResultUtil<Object>().setErrorMsg("用户名或密码错误");
+                return new ResultUtil<>().setErrorMsg("用户名或密码错误");
             }
         }
-        else {
-            // 验证失败
-            return new ResultUtil<Object>().setErrorMsg("验证失败");
-        }
+        else return new ResultUtil<>().setErrorMsg("验证失败");
     }
 
     @RequestMapping(value = "/user/logout",method = RequestMethod.GET)
@@ -108,7 +96,7 @@ public class UserController {
 
         Subject subject = SecurityUtils.getSubject();
         subject.logout();
-        return new ResultUtil<Object>().setData(null);
+        return new ResultUtil<>().setData(null);
     }
 
     @RequestMapping(value = "/user/userInfo",method = RequestMethod.GET)
@@ -125,8 +113,7 @@ public class UserController {
     @ApiOperation(value = "获取角色列表")
     public DataTablesResult getRoleList(){
 
-        DataTablesResult result=userService.getRoleList();
-        return result;
+        return userService.getRoleList();
     }
 
     @RequestMapping(value = "/user/getAllRoles",method = RequestMethod.GET)
@@ -141,10 +128,7 @@ public class UserController {
     @ApiOperation(value = "判断角色是否已存在")
     public boolean roleName(String name){
 
-        if(userService.getRoleByRoleName(name)!=null){
-            return false;
-        }
-        return true;
+        return userService.getRoleByRoleName(name) == null;
     }
 
     @RequestMapping(value = "/user/edit/roleName/{id}",method = RequestMethod.GET)
@@ -159,7 +143,7 @@ public class UserController {
     public Result<Object> addRole(@ModelAttribute TbRole tbRole){
 
         userService.addRole(tbRole);
-        return new ResultUtil<Object>().setData(null);
+        return new ResultUtil<>().setData(null);
     }
 
     @RequestMapping(value = "/user/updateRole",method = RequestMethod.POST)
@@ -167,7 +151,7 @@ public class UserController {
     public Result<Object> updateRole(@ModelAttribute TbRole tbRole){
 
         userService.updateRole(tbRole);
-        return new ResultUtil<Object>().setData(null);
+        return new ResultUtil<>().setData(null);
     }
 
     @RequestMapping(value = "/user/delRole/{id}",method = RequestMethod.DELETE)
@@ -176,9 +160,9 @@ public class UserController {
 
         int result=userService.deleteRole(id);
         if(result==1){
-            return new ResultUtil<Object>().setData(null);
+            return new ResultUtil<>().setData(null);
         }else {
-            return new ResultUtil<Object>().setErrorMsg("该角色被使用中，不能删除！");
+            return new ResultUtil<>().setErrorMsg("该角色被使用中，不能删除！");
         }
     }
 
@@ -187,15 +171,14 @@ public class UserController {
     public Result<Object> getRoleCount(){
 
         Long result=userService.countRole();
-        return new ResultUtil<Object>().setData(result);
+        return new ResultUtil<>().setData(result);
     }
 
     @RequestMapping(value = "/user/permissionList",method = RequestMethod.GET)
     @ApiOperation(value = "获取权限列表")
     public DataTablesResult getPermissionList(){
 
-        DataTablesResult result=userService.getPermissionList();
-        return result;
+        return userService.getPermissionList();
     }
 
     @RequestMapping(value = "/user/addPermission",method = RequestMethod.POST)
@@ -203,7 +186,7 @@ public class UserController {
     public Result<Object> addPermission(@ModelAttribute TbPermission tbPermission){
 
         userService.addPermission(tbPermission);
-        return new ResultUtil<Object>().setData(null);
+        return new ResultUtil<>().setData(null);
     }
 
     @RequestMapping(value = "/user/updatePermission",method = RequestMethod.POST)
@@ -211,7 +194,7 @@ public class UserController {
     public Result<Object> updatePermission(@ModelAttribute TbPermission tbPermission){
 
         userService.updatePermission(tbPermission);
-        return new ResultUtil<Object>().setData(null);
+        return new ResultUtil<>().setData(null);
     }
 
     @RequestMapping(value = "/user/delPermission/{id}",method = RequestMethod.DELETE)
@@ -219,7 +202,7 @@ public class UserController {
     public Result<Object> delPermission(@PathVariable int id){
 
         userService.deletePermission(id);
-        return new ResultUtil<Object>().setData(null);
+        return new ResultUtil<>().setData(null);
     }
 
     @RequestMapping(value = "/user/permissionCount",method = RequestMethod.GET)
@@ -227,15 +210,14 @@ public class UserController {
     public Result<Object> getPermissionCount(){
 
         Long result=userService.countPermission();
-        return new ResultUtil<Object>().setData(result);
+        return new ResultUtil<>().setData(result);
     }
 
     @RequestMapping(value = "/user/userList",method = RequestMethod.GET)
     @ApiOperation(value = "获取用户列表")
     public DataTablesResult getUserList(){
 
-        DataTablesResult result=userService.getUserList();
-        return result;
+        return userService.getUserList();
     }
 
     @RequestMapping(value = "/user/username",method = RequestMethod.GET)
@@ -264,7 +246,7 @@ public class UserController {
     public Result<Object> addUser(@ModelAttribute TbUser tbUser){
 
         userService.addUser(tbUser);
-        return new ResultUtil<Object>().setData(null);
+        return new ResultUtil<>().setData(null);
     }
 
     @RequestMapping(value = "/user/updateUser",method = RequestMethod.POST)
@@ -272,7 +254,7 @@ public class UserController {
     public Result<Object> updateUser(@ModelAttribute TbUser tbUser){
 
         userService.updateUser(tbUser);
-        return new ResultUtil<Object>().setData(null);
+        return new ResultUtil<>().setData(null);
     }
 
     @RequestMapping(value = "/user/edit/username/{id}",method = RequestMethod.GET)
@@ -301,7 +283,7 @@ public class UserController {
     public Result<Object> stopUser(@PathVariable Long id){
 
         userService.changeUserState(id,0);
-        return new ResultUtil<Object>().setData(null);
+        return new ResultUtil<>().setData(null);
     }
 
     @RequestMapping(value = "/user/start/{id}",method = RequestMethod.PUT)
@@ -309,7 +291,7 @@ public class UserController {
     public Result<Object> startUser(@PathVariable Long id){
 
         userService.changeUserState(id,1);
-        return new ResultUtil<Object>().setData(null);
+        return new ResultUtil<>().setData(null);
     }
 
     @RequestMapping(value = "/user/changePass",method = RequestMethod.POST)
@@ -317,7 +299,7 @@ public class UserController {
     public Result<Object> changePass(@ModelAttribute TbUser tbUser){
 
         userService.changePassword(tbUser);
-        return new ResultUtil<Object>().setData(null);
+        return new ResultUtil<>().setData(null);
     }
 
     @RequestMapping(value = "/user/delUser/{id}",method = RequestMethod.DELETE)
@@ -325,7 +307,7 @@ public class UserController {
     public Result<Object> delUser(@PathVariable Long id){
 
         userService.deleteUser(id);
-        return new ResultUtil<Object>().setData(null);
+        return new ResultUtil<>().setData(null);
     }
 
     @RequestMapping(value = "/user/userCount",method = RequestMethod.GET)
@@ -333,6 +315,6 @@ public class UserController {
     public Result<Object> getUserCount(){
 
         Long result=userService.countUser();
-        return new ResultUtil<Object>().setData(result);
+        return new ResultUtil<>().setData(result);
     }
 }

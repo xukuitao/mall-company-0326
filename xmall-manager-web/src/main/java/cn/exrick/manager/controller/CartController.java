@@ -1,14 +1,17 @@
 package cn.exrick.manager.controller;
 
-import cn.exrick.common.dto.Cart;
-import cn.exrick.common.dto.CartProduct;
+import cn.exrick.common.pojo.Cart;
+import cn.exrick.common.pojo.CartProduct;
 import cn.exrick.common.pojo.Result;
-import cn.exrick.common.utils.ResultUtil;
 import cn.exrick.common.service.CartService;
+import cn.exrick.common.utils.ResultUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 

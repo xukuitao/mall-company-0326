@@ -3,10 +3,10 @@ package cn.exrick.manager.mapper;
 import cn.exrick.common.pojo.TbContentCategory;
 import cn.exrick.common.pojo.TbContentCategoryExample;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-@Component
+@Repository
 public interface TbContentCategoryMapper {
     long countByExample(TbContentCategoryExample example);
 

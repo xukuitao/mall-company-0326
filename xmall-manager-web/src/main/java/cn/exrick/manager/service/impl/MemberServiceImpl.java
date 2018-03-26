@@ -1,17 +1,12 @@
 package cn.exrick.manager.service.impl;
 
-import cn.exrick.common.dto.DtoUtil;
-import cn.exrick.common.dto.MemberDto;
-import cn.exrick.common.dto.Member;
 import cn.exrick.common.exception.XmallException;
 import cn.exrick.common.jedis.JedisClient;
-import cn.exrick.search.mapper.TbMemberMapper;
-import cn.exrick.common.pojo.DataTablesResult;
-import cn.exrick.common.pojo.TbMember;
-import cn.exrick.common.pojo.TbMemberExample;
+import cn.exrick.common.pojo.*;
+import cn.exrick.common.service.LoginService;
 import cn.exrick.common.service.MemberService;
 import cn.exrick.common.utils.QiniuUtil;
-import cn.exrick.common.service.LoginService;
+import cn.exrick.search.mapper.TbMemberMapper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.google.gson.Gson;

@@ -1,7 +1,7 @@
 package cn.exrick.manager.controller;
 
-import cn.exrick.common.dto.ContentCatDto;
-import cn.exrick.common.dto.DtoUtil;
+import cn.exrick.common.pojo.ContentCatDto;
+import cn.exrick.common.pojo.DtoUtil;
 import cn.exrick.common.pojo.Result;
 import cn.exrick.common.pojo.ZTreeNode;
 import cn.exrick.common.service.ContentCatService;

@@ -5,8 +5,6 @@ import cn.exrick.common.jedis.JedisClient;
 import cn.exrick.common.pojo.*;
 import cn.exrick.common.service.ItemService;
 import cn.exrick.common.utils.IDUtil;
-import cn.exrick.common.dto.DtoUtil;
-import cn.exrick.common.dto.ItemDto;
 import cn.exrick.manager.mapper.TbItemCatMapper;
 import cn.exrick.manager.mapper.TbItemDescMapper;
 import cn.exrick.search.mapper.TbItemMapper;

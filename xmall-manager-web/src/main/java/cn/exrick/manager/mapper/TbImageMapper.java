@@ -1,13 +1,13 @@
 package cn.exrick.manager.mapper;
 
-import cn.exrick.common.pojo.TbImageExample;
 import cn.exrick.common.pojo.TbImage;
+import cn.exrick.common.pojo.TbImageExample;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
-import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Component;
 
-@Component
+@Repository
 public interface TbImageMapper {
     long countByExample(TbImageExample example);
 

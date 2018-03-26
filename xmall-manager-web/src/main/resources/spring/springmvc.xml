@@ -20,17 +20,17 @@
     <context:component-scan base-package="cn.exrick.manager" />
 
     <!-- 配置自定义Realm -->
-    <bean id="myRealm" class="cn.exrick.common.utils.MyRealm"/>
+    <bean id="myRealm" class="cn.exrick.manager.shiro.MyRealm"/>
 
     <!-- 安全管理器 -->
     <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
         <property name="realm" ref="myRealm"/>
     </bean>
 
-    <bean id="perms" class="cn.exrick.common.utils.MyPermissionFilter"/>
+    <bean id="perms" class="cn.exrick.manager.shiro.MyShiroFilterFactoryBean"/>
 
     <!-- Shiro过滤器 核心-->
-    <bean id="shiroFilter" class="cn.exrick.common.utils.MyShiroFilterFactoryBean">
+    <bean id="shiroFilter" class="cn.exrick.manager.shiro.MyShiroFilterFactoryBean">
         <!-- Shiro的核心安全接口,这个属性是必须的 -->
         <property name="securityManager" ref="securityManager"/>
         <!-- 身份认证失败，则跳转到登录页面的配置 -->
